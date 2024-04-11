@@ -5,7 +5,7 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     [SerializeField] private float _rotationSpeed = 200f;
-    [SerializeField] private float _movementSpeed = 50f;
+    [SerializeField] public float _movementSpeed = 50f;
 
     
     // Start is called before the first frame update

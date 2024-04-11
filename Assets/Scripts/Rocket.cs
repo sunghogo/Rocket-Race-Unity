@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    [SerializeField] private float _rotationSpeed = 200f;
-    [SerializeField] public float _movementSpeed = 50f;
+    [SerializeField] private float _rotationSpeed = 150f;
+    [SerializeField] public float _movementSpeed = 30f;
 
     
     // Start is called before the first frame update

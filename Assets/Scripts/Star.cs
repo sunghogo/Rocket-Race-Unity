@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Star : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Update() {
+        transform.Rotate(Vector3.up * Time.deltaTime * 100f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void OnCollisionEnter(Collision other) {
+        Debug.Log("Colliding");
+        Destroy(gameObject);
     }
 }

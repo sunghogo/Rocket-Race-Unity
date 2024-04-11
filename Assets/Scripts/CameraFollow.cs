@@ -24,7 +24,7 @@ public class CameraFollow : MonoBehaviour
     {
         Vector3 newCameraPosition = _rocketTransform.position + offset;
 
-        transform.position = Vector3.Lerp(transform.position, newCameraPosition, _followSpeed * Time.deltaTime); // Smoothly move the camera to the new position
+        transform.position = Vector3.Slerp(transform.position, newCameraPosition, _followSpeed * Time.deltaTime); // Smoothly move the camera to the new position
 
         transform.LookAt(_rocketTransform.position); // Make camera look at new rocket position
     }

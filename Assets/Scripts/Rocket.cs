@@ -1,17 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Rocket : MonoBehaviour
 {
-    [SerializeField] private float _rotationSpeed = 150f;
-    [SerializeField] public float _movementSpeed = 30f;
+    public float _movementSpeed = 30f;
+    [SerializeField] private float _rotationSpeed = 300f;
+
+    [SerializeField] private Score _score;
 
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        _score = FindObjectOfType<Score>();
+    }
+
+    void OnCollisionEnter(Collision other) {
+        Destroy(other.gameObject);
+        _score.IncrementScore();
     }
 
     // Update is called once per frame

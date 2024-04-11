@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotationSpeed: 100
+  _movementSpeed: 50
 --- !u!1001 &39592586515086893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -379,7 +380,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 618350297281857342, guid: 103d162e80005c044af0968b1c9a321e, type: 3}
+    - {fileID: 2281614529059077100, guid: 103d162e80005c044af0968b1c9a321e, type: 3}
+    - {fileID: 7072239963549264691, guid: 103d162e80005c044af0968b1c9a321e, type: 3}
+    - {fileID: 4378021833159974438, guid: 103d162e80005c044af0968b1c9a321e, type: 3}
+    - {fileID: 4501234518204607304, guid: 103d162e80005c044af0968b1c9a321e, type: 3}
+    - {fileID: 6456031781044215753, guid: 103d162e80005c044af0968b1c9a321e, type: 3}
+    - {fileID: 1506123638490818289, guid: 103d162e80005c044af0968b1c9a321e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

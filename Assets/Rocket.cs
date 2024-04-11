@@ -5,6 +5,8 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     [SerializeField] private float _rotationSpeed = 100f;
+    [SerializeField] private float _movementSpeed = 10f;
+
     
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,9 @@ public class Rocket : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
             RotateDown();
         }
+        if (Input.GetKey(KeyCode.Space)) {
+            Thrust();
+        }
     }
     
     private void RotateLeft() {
@@ -43,5 +48,9 @@ public class Rocket : MonoBehaviour
 
     private void RotateDown() {
         transform.Rotate(Vector3.right * Time.deltaTime * _rotationSpeed);
+    }
+
+    private void Thrust() {
+        transform.Translate(Vector3.up * Time.deltaTime * _movementSpeed);
     }
 }

@@ -15,6 +15,7 @@ public class StarSpawner : MonoBehaviour
     void Start()
     {
         _starObject = FindObjectOfType<Star>();
+        _starObject.gameObject.SetActive(false);
         StartCoroutine(SpawnStarForever());
     }
 
@@ -26,7 +27,8 @@ public class StarSpawner : MonoBehaviour
     }
 
     private void GenerateStar() {
-        Instantiate(_starObject, GenerateRandomPosition(_xBoundary, _yBoundary, _zBoundary), Quaternion.identity);
+        Star star = Instantiate(_starObject, GenerateRandomPosition(_xBoundary, _yBoundary, _zBoundary), Quaternion.identity);
+        star.gameObject.SetActive(true);
     }
 
     private Vector3 GenerateRandomPosition(float x, float y, float z) {

@@ -10,16 +10,12 @@ public class Rocket : MonoBehaviour
 
     [SerializeField] private Canvas _canvas;
     [SerializeField] private Score _score;
-    [SerializeField] private GameOver _gameOver;
-
 
     
     // Start is called before the first frame update
     void Start()
     {
-        _canvas = FindObjectOfType<Canvas>();
-        _score = _canvas.GetComponentInChildren<Score>();
-        _gameOver = _canvas.GetComponentInChildren<GameOver>();
+        _score = FindObjectOfType<Canvas>().GetComponentInChildren<Score>();
     }
 
     void OnCollisionEnter(Collision other) {
@@ -46,6 +42,9 @@ public class Rocket : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Space)) {
             Thrust();
+        }
+        if (Input.GetKey(KeyCode.Escape)) {
+            Application.Quit();
         }
     }
     

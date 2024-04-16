@@ -18,8 +18,10 @@ public class Rocket : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision other) {
-        Destroy(other.gameObject);
-        _score.IncrementScore();
+        if (other.gameObject.CompareTag("Star")) {
+            Destroy(other.gameObject);
+            _score.IncrementScore();
+        }
     }
 
     // Update is called once per frame

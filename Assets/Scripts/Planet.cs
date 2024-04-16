@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         transform.Rotate(Vector3.up * Time.deltaTime * 100f);
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.CompareTag("Star") || (other.gameObject.CompareTag("Planet"))) {
+            Destroy(other.gameObject);
+        } else {
+            other.gameObject.SetActive(false);
+        }
     }
 }

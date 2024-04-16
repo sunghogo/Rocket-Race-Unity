@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
+    [SerializeField] private GameOver _gameOver;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        _gameOver = FindObjectOfType<Canvas>().GetComponentInChildren<GameOver>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -15,6 +23,7 @@ public class Planet : MonoBehaviour
             Destroy(other.gameObject);
         } else {
             other.gameObject.SetActive(false);
+            _gameOver.TurnOnText();
         }
     }
 }

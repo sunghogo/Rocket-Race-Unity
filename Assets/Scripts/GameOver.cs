@@ -3,25 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Score : MonoBehaviour
+public class GameOver : MonoBehaviour
 {
-    [SerializeField] private float _score = 0;
     [SerializeField] private TextMeshProUGUI _textComponent;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         _textComponent = GetComponent<TextMeshProUGUI>();
-        _textComponent.text = $"Score: {_score}";
+        TurnOffText();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        _textComponent.text = $"Score: {_score}";
+    private void TurnOffText() {
+        _textComponent.alpha = 0f;
     }
 
-    public void IncrementScore() {
-        _score++;
+    public void TurnOnText() {
+        _textComponent.alpha = 1f;
     }
 }

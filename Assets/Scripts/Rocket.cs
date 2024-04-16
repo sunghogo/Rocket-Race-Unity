@@ -8,13 +8,18 @@ public class Rocket : MonoBehaviour
     public float _movementSpeed = 30f;
     [SerializeField] private float _rotationSpeed = 300f;
 
+    [SerializeField] private Canvas _canvas;
     [SerializeField] private Score _score;
+    [SerializeField] private GameOver _gameOver;
+
 
     
     // Start is called before the first frame update
     void Start()
     {
-        _score = FindObjectOfType<Score>();
+        _canvas = FindObjectOfType<Canvas>();
+        _score = _canvas.GetComponentInChildren<Score>();
+        _gameOver = _canvas.GetComponentInChildren<GameOver>();
     }
 
     void OnCollisionEnter(Collision other) {

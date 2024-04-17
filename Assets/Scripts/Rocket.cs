@@ -1,28 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class Rocket : MonoBehaviour
 {
     public float _movementSpeed = 30f;
     [SerializeField] private float _rotationSpeed = 300f;
 
-    [SerializeField] private Canvas _canvas;
-    [SerializeField] private Score _score;
-
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        _score = FindObjectOfType<Canvas>().GetComponentInChildren<Score>();
-    }
-
     void OnCollisionEnter(Collision other) {
-        if (other.gameObject.CompareTag("Star")) {
-            Destroy(other.gameObject);
-            _score.IncrementScore();
-        }
+        if (other.gameObject.CompareTag("Star")) EventManager.RocketCollideStar(other.gameObject);
+        else if (other.gameObject.CompareTag("Planet")) EventManager.RocketCollidePlanet(gameObject);
     }
 
     // Update is called once per frame

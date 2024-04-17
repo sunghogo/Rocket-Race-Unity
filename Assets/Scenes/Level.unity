@@ -131,6 +131,27 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2640564560378760565, guid: 47156c4f3fcb9554e85e5544127905ef, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2640564560378760565, guid: 47156c4f3fcb9554e85e5544127905ef, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2640564560378760565, guid: 47156c4f3fcb9554e85e5544127905ef, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6534212962516542734, guid: 47156c4f3fcb9554e85e5544127905ef, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009972094957096968, guid: 47156c4f3fcb9554e85e5544127905ef, type: 3}
+      propertyPath: m_text
+      value: "W/A/S/D or \u2191/\u2190/\u2193/\u2192: Rotate\nSPACE: Thrust\nESC:
+        Exit"
+      objectReference: {fileID: 0}
     - target: {fileID: 7241183827153021150, guid: 47156c4f3fcb9554e85e5544127905ef, type: 3}
       propertyPath: m_Name
       value: UI
@@ -583,6 +604,14 @@ PrefabInstance:
     - target: {fileID: 4554621157713995098, guid: a40276b2e7d9cb04c9988ce9130a92b6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567391645531997865, guid: a40276b2e7d9cb04c9988ce9130a92b6, type: 3}
+      propertyPath: _maxScale
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4567391645531997865, guid: a40276b2e7d9cb04c9988ce9130a92b6, type: 3}
+      propertyPath: _spawnTime
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6549552847637585176, guid: a40276b2e7d9cb04c9988ce9130a92b6, type: 3}
       propertyPath: m_Name

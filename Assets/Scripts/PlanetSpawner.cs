@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlanetSpawner : MonoBehaviour
 {
-    [SerializeField] private float _spawnTime = 10f;
-    [SerializeField] private float _maxScale = 10f;
+    [SerializeField] private float _spawnTime = 15f;
+    [SerializeField] private float _maxScale = 20f;
     [SerializeField] private Planet _planetObject;
     
     // Start is called before the first frame update

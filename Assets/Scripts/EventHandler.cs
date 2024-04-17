@@ -8,9 +8,8 @@ public class EventManager : MonoBehaviour
     [SerializeField] private GameOver _gameOver;
     [SerializeField] private Controls _controls;
 
-    
+    public static Vector3 BoundarySize =  new Vector3(50f, 50f, 50f);
     public static event Action GetStar;
-    
     public static event Action GameOver;
 
     // Start is called before the first frame update
@@ -20,6 +19,7 @@ public class EventManager : MonoBehaviour
         _score = canvas.GetComponentInChildren<Score>();   
         _gameOver = canvas.GetComponentInChildren<GameOver>();
         _controls = canvas.GetComponentInChildren<Controls>();
+
 
         ClearEvents(); // static events will persist so must be cleared
 

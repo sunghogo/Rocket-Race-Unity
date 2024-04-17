@@ -4,6 +4,7 @@ public class Rocket : MonoBehaviour
 {
     public float _movementSpeed = 30f;
     [SerializeField] private float _rotationSpeed = 300f;
+
     private AudioSource _audioSource;
     [SerializeField] private AudioClip _thrustClip;
     [SerializeField] private AudioClip _explosionClip;
@@ -61,6 +62,7 @@ public class Rocket : MonoBehaviour
         if (!_audioSource.isPlaying) _audioSource.PlayOneShot(_thrustClip);
         if (!_thrustFireParticles.isPlaying) PlayThrustParticles();
         transform.Translate(Vector3.up * Time.deltaTime * _movementSpeed);
+        ClampPosition();
     }
 
     private void StopThrust() {
@@ -97,5 +99,13 @@ public class Rocket : MonoBehaviour
     private void StopThrustParticles() {
         _thrustFireParticles.Stop();
         _thrustSmokeParticles.Stop();
+    }
+
+    private void ClampPosition() {
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, -EventManager.BoundarySize.x, EventManager.BoundarySize.x),
+            Mathf.Clamp(transform.position.y, -EventManager.BoundarySize.y, EventManager.BoundarySize.y),
+            Mathf.Clamp(transform.position.z, -EventManager.BoundarySize.z, EventManager.BoundarySize.z)
+        );
     }
 }

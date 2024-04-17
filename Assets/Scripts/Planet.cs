@@ -15,7 +15,7 @@ public class Planet : MonoBehaviour
         transform.Rotate(Vector3.up * Time.deltaTime * 100f);
     }
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnCollisionStay(Collision other) {
         if (other.gameObject.CompareTag("Star") || other.gameObject.CompareTag("Planet")) EventManager.PlanetColideNotRocket(other.gameObject);
     }
 

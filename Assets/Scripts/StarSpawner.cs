@@ -5,9 +5,6 @@ using UnityEngine;
 public class StarSpawner : MonoBehaviour
 
 {
-    [SerializeField] private float _xBoundary = 50f;
-    [SerializeField] private float _yBoundary = 50f;
-    [SerializeField] private float _zBoundary = 50f;
     [SerializeField] private float _spawnTime = 3f;
     [SerializeField] private Star _starObject;
 
@@ -27,7 +24,7 @@ public class StarSpawner : MonoBehaviour
     }
 
     private void GenerateStar() {
-        Star star = Instantiate(_starObject, GenerateRandomPosition(_xBoundary, _yBoundary, _zBoundary), Quaternion.identity);
+        Star star = Instantiate(_starObject, GenerateRandomPosition(EventManager.BoundarySize.x, EventManager.BoundarySize.y, EventManager.BoundarySize.z), Quaternion.identity);
         star.gameObject.SetActive(true);
     }
 

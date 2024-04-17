@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlanetSpawner : MonoBehaviour
 {
-    [SerializeField] private float _xBoundary = 50f;
-    [SerializeField] private float _yBoundary = 50f;
-    [SerializeField] private float _zBoundary = 50f;
     [SerializeField] private float _spawnTime = 10f;
     [SerializeField] private float _maxScale = 10f;
     [SerializeField] private Planet _planetObject;
@@ -27,7 +24,7 @@ public class PlanetSpawner : MonoBehaviour
     }
 
     private void GeneratePlanet() {
-        Planet planet = Instantiate(_planetObject, GenerateRandomPosition(_xBoundary, _yBoundary, _zBoundary), Quaternion.identity);
+        Planet planet = Instantiate(_planetObject, GenerateRandomPosition(EventManager.BoundarySize.x, EventManager.BoundarySize.y, EventManager.BoundarySize.z), Quaternion.identity);
         planet.transform.localScale = GenerateRandomScale(_maxScale);
         planet.gameObject.SetActive(true);
     }

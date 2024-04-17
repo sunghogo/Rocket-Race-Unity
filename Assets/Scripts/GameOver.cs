@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] private float _reloadTime = 3f;
+    [SerializeField] private float _reloadTime = 5f;
 
     [SerializeField] private TextMeshProUGUI _textComponent;
 

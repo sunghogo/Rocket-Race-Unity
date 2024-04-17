@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using UnityEngine;
 
 public class EventManager : MonoBehaviour
@@ -14,11 +15,13 @@ public class EventManager : MonoBehaviour
     void Start()
     {
         var canvas = FindObjectOfType<Canvas>(); 
-     _score = canvas.GetComponentInChildren<Score>();   
-     _gameOver = canvas.GetComponentInChildren<GameOver>();
+        _score = canvas.GetComponentInChildren<Score>();   
+        _gameOver = canvas.GetComponentInChildren<GameOver>();
 
-     GetStar += _score.IncrementScore;
-     GameOver += _gameOver.StartGameOverSequence;
+        ClearEvents(); // static events will persist so must be cleared
+
+        GetStar += _score.IncrementScore;
+        GameOver += _gameOver.StartGameOverSequence;
     }
 
     public static void RocketCollideStar(GameObject star) {
@@ -26,13 +29,16 @@ public class EventManager : MonoBehaviour
         Destroy(star);
     }
 
-    public static void RocketCollidePlanet(GameObject rocket) {
+    public static void RocketCollidePlanet() {
         GameOver?.Invoke();
-        rocket.SetActive(false);
     }
 
     public static void PlanetColideNotRocket (GameObject other) {
         Destroy(other);
     }
 
+    private void ClearEvents() {
+        GetStar = null;
+        GameOver = null;
+    }
 }

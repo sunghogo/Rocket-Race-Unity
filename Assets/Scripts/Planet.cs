@@ -2,6 +2,13 @@ using UnityEngine;
 
 public class Planet : MonoBehaviour
 {
+    private Rigidbody _rigidbody;
+
+    void Start() {
+        _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.useGravity = false;    
+    }
+
     // Update is called once per frame
     void Update()
     {

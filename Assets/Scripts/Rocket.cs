@@ -4,10 +4,15 @@ public class Rocket : MonoBehaviour
 {
     public float _movementSpeed = 30f;
     [SerializeField] private float _rotationSpeed = 300f;
+    private AudioSource _audioSource;
     [SerializeField] private AudioClip _thrustClip;
     [SerializeField] private AudioClip _explosionClip;
     [SerializeField] private AudioClip _starClip;
-    private AudioSource _audioSource;
+    [SerializeField] private ParticleSystem _thrustFireParticles;
+    [SerializeField] private ParticleSystem _thrustSmokeParticles;
+    [SerializeField] private ParticleSystem _explosionParticles;
+
+
     private bool _inputOn = true;
 
 
@@ -54,11 +59,13 @@ public class Rocket : MonoBehaviour
 
     private void Thrust() {
         if (!_audioSource.isPlaying) _audioSource.PlayOneShot(_thrustClip);
+        if (!_thrustFireParticles.isPlaying) PlayThrustParticles();
         transform.Translate(Vector3.up * Time.deltaTime * _movementSpeed);
     }
 
     private void StopThrust() {
         if (_audioSource.isPlaying) _audioSource.Stop();
+        if (_thrustFireParticles.isPlaying) StopThrustParticles();
     }
 
     private void GetStar(GameObject star) {
@@ -68,6 +75,8 @@ public class Rocket : MonoBehaviour
 
     private void Crash() {
         _inputOn = false;
+        StopThrustParticles();
+        _explosionParticles.Play();
         DisableAllChildMeshes();
         _audioSource.Stop();
         _audioSource.PlayOneShot(_explosionClip);
@@ -78,5 +87,15 @@ public class Rocket : MonoBehaviour
         foreach (var childMesh in GetComponentsInChildren<MeshRenderer>()) {
             childMesh.enabled = false;
         }
+    }
+
+    private void PlayThrustParticles() {
+        _thrustFireParticles.Play();
+        _thrustSmokeParticles.Play();
+    }
+
+    private void StopThrustParticles() {
+        _thrustFireParticles.Stop();
+        _thrustSmokeParticles.Stop();
     }
 }

@@ -6,6 +6,8 @@ public class EventManager : MonoBehaviour
 {
     [SerializeField] private Score _score;
     [SerializeField] private GameOver _gameOver;
+    [SerializeField] private Controls _controls;
+
     
     public static event Action GetStar;
     
@@ -17,11 +19,14 @@ public class EventManager : MonoBehaviour
         var canvas = FindObjectOfType<Canvas>(); 
         _score = canvas.GetComponentInChildren<Score>();   
         _gameOver = canvas.GetComponentInChildren<GameOver>();
+        _controls = canvas.GetComponentInChildren<Controls>();
 
         ClearEvents(); // static events will persist so must be cleared
 
         GetStar += _score.IncrementScore;
+        GetStar += _controls.TurnOffText;
         GameOver += _gameOver.StartGameOverSequence;
+        GameOver += _controls.TurnOffText;
     }
 
     public static void RocketCollideStar(GameObject star) {

@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    public float _movementSpeed = 30f;
-    [SerializeField] private float _rotationSpeed = 300f;
+    public float _movementSpeed = 20f;
+    [SerializeField] private float _rotationSpeed = 200f;
+    private Quaternion _targetRotation;
+    [SerializeField] private float _smoothTime = 0.2f;
 
     private AudioSource _audioSource;
     [SerializeField] private AudioClip _thrustClip;
@@ -13,11 +15,11 @@ public class Rocket : MonoBehaviour
     [SerializeField] private ParticleSystem _thrustSmokeParticles;
     [SerializeField] private ParticleSystem _explosionParticles;
 
-
     private bool _inputOn = true;
 
 
     void Start() {
+        _targetRotation = transform.rotation;
         _audioSource = GetComponent<AudioSource>(); 
     }
 
@@ -34,6 +36,7 @@ public class Rocket : MonoBehaviour
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) RotateRight();
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) RotateUp();
             if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) RotateDown();
+            ApplyRotation();
 
             if (Input.GetKey(KeyCode.Space)) Thrust();
             else StopThrust();
@@ -43,19 +46,23 @@ public class Rocket : MonoBehaviour
     }
     
     private void RotateLeft() {
-        transform.Rotate(Vector3.forward * Time.deltaTime * _rotationSpeed);
+        _targetRotation *= Quaternion.AngleAxis(Time.deltaTime * _rotationSpeed, Vector3.forward);
     }
 
     private void RotateRight() {
-        transform.Rotate(Vector3.back * Time.deltaTime * _rotationSpeed);
+        _targetRotation *= Quaternion.AngleAxis(Time.deltaTime * _rotationSpeed, Vector3.back);
+    }
+
+    private void ApplyRotation() {
+        transform.rotation = Quaternion.Slerp(transform.rotation, _targetRotation, _smoothTime);
     }
 
     private void RotateUp() {
-        transform.Rotate(Vector3.left * Time.deltaTime * _rotationSpeed);
+        _targetRotation *= Quaternion.AngleAxis(Time.deltaTime * _rotationSpeed, Vector3.left);
     }
 
     private void RotateDown() {
-        transform.Rotate(Vector3.right * Time.deltaTime * _rotationSpeed);
+        _targetRotation *= Quaternion.AngleAxis(Time.deltaTime * _rotationSpeed, Vector3.right);
     }
 
     private void Thrust() {

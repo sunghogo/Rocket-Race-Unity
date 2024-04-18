@@ -8,7 +8,7 @@ public class EventManager : MonoBehaviour
     [SerializeField] private GameOver _gameOver;
     [SerializeField] private Controls _controls;
 
-    public static Vector3 BoundarySize =  new Vector3(50f, 50f, 50f);
+    public static Vector3 BoundarySize =  new Vector3(125f, 125f, 125f);
     public static event Action GetStar;
     public static event Action GameOver;
 

@@ -18,4 +18,3 @@
 <br />
 
 ### [Play](https://sunghogo.github.io/Rocket-Race/)
-<img align="left" alt="Play Link" width="40px" src="https://www.svgrepo.com/download/13672/play-button.svg" href="https://sunghogo.github.io/Rocket-Race/"/>

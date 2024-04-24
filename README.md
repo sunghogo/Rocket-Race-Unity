@@ -2,8 +2,6 @@
 
 > WebGL Unity Game. Collect stars and don't crash into the the planets!
 
-<br />
-
 ### [Play](https://sunghogo.github.io/Rocket-Race/)
 
 ### Controls:

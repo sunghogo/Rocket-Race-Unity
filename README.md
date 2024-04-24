@@ -4,6 +4,8 @@
 
 <br />
 
+### [Play](https://sunghogo.github.io/Rocket-Race/)
+
 ### Controls:
 
 | Key | Controls |
@@ -14,7 +16,3 @@
 | D or → | Rotate Right |
 | SPACE | Thrust |
 | ESC | Quit (Only for .exe) |
-
-<br />
-
-### [Play](https://sunghogo.github.io/Rocket-Race/)

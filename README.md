@@ -1,16 +1,17 @@
 # **Rocket Race**
 
-> WebGL Unity Game. Collect stars and don't crash into the the planets!
+[<img src="https://www.svgrepo.com/download/449764/github.svg" alt="GitHub" width="30" height="30">](https://github.com/sunghogo/Rocket-Race-Unity) [<img src="https://www.svgrepo.com/download/501816/play-game.svg" alt="Play Button" width="30" height="30">](https://sunghogo.github.io/Rocket-Race/)
 
-### [Play](https://sunghogo.github.io/Rocket-Race/)
-
-### Controls:
-
-| Key | Controls |
-| --- | -------- |
-| W or ↑ | Rotate Up |
-| S or ↓ | Rotate Down |
-| A or ← | Rotate Left |
+| Key    | Controls     |
+| ------ | ------------ |
+| A or ← | Rotate Left  |
 | D or → | Rotate Right |
-| SPACE | Thrust |
-| ESC | Quit (Only for .exe) |
+| Space  | Thrust       |
+
+---
+
+| Demo                                                                                                                                        | Description                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/sunghogo/GameDevTV-Unity/blob/main/Rocket-Race-Unity/DemoReels/Demo.gif?raw=true" alt="Demo gif" width="300"/> | Unity WebGL Game where you maneuver a rocket to collect stars and avoid crashing into planets. |
+
+~

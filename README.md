@@ -10,8 +10,6 @@
 
 ---
 
-| Demo                                                                                                                                        | Description                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| <img src="https://github.com/sunghogo/GameDevTV-Unity/blob/main/Rocket-Race-Unity/DemoReels/Demo.gif?raw=true" alt="Demo gif" width="300"/> | Unity WebGL Game where you maneuver a rocket to collect stars and avoid crashing into planets. |
-
-~
+| Demo                                                                                                                        | Description                                                                                    |
+| --------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/sunghogo/Rocket-Race-Unity/blob/main/DemoReels/Demo.gif?raw=true" alt="Demo gif" width="300"/> | Unity WebGL Game where you maneuver a rocket to collect stars and avoid crashing into planets. |
